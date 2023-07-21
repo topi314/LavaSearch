@@ -1,7 +1,7 @@
 package com.github.topi314.lavasearch.plugin;
 
-import com.github.topi314.lavasearch.protocol.SearchResult;
 import com.github.topi314.lavasearch.SearchManager;
+import com.github.topi314.lavasearch.protocol.SearchResult;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
