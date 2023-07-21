@@ -1,0 +1,23 @@
+archivesBaseName = "lavasearch-plugin-api"
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+dependencies {
+    implementation project(":main")
+    compileOnly "org.jetbrains:annotations:24.0.1"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId archivesBaseName
+            from components.java
+        }
+    }
+}

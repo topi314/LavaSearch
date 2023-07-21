@@ -1,0 +1,6 @@
+rootProject.name = "LavaSearch"
+include(":main")
+include(":plugin")
+include(":plugin-api")
+include(":protocol")
+

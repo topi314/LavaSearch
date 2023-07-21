@@ -1,0 +1,24 @@
+archivesBaseName = "lavasearch"
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+dependencies {
+    implementation project(":protocol")
+    compileOnly "org.jetbrains:annotations:24.0.1"
+    implementation "org.jetbrains.kotlin:kotlin-annotations-jvm:1.9.0"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId archivesBaseName
+            from components.java
+        }
+    }
+}
