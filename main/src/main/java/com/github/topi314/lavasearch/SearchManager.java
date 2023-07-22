@@ -1,10 +1,12 @@
 package com.github.topi314.lavasearch;
 
 import com.github.topi314.lavasearch.protocol.SearchResult;
+import com.github.topi314.lavasearch.protocol.SearchType;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class SearchManager {
 
@@ -40,7 +42,7 @@ public class SearchManager {
 	}
 
 	@Nullable
-	public SearchResult loadSearch(String query, List<String> types) {
+	public SearchResult loadSearch(String query, Set<SearchType> types) {
 		for (var sourceManager : this.sourceManagers) {
 			var searchResults = sourceManager.loadSearch(query, types);
 			if (searchResults != null) {

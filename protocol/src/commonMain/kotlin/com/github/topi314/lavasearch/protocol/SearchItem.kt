@@ -4,6 +4,15 @@ import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmField
 
 @Serializable
+enum class SearchType(val value: String) {
+    TRACK("track"),
+    ALBUM("album"),
+    ARTIST("artist"),
+    PLAYLIST("playlist"),
+    TEXT("text")
+}
+
+@Serializable
 data class SearchResult(
     val albums: List<SearchAlbum>,
     val artist: List<SearchArtist>,
