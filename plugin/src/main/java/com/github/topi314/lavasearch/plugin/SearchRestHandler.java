@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -28,10 +29,11 @@ public class SearchRestHandler {
 	}
 
 	@GetMapping("/v4/loadsearch")
-	public ResponseEntity<SearchResult> loadSearch(HttpServletRequest request, @RequestParam String query, @RequestParam(required = false) String rawTypes) {
-		log.debug("laodSearch called with query: {}, types: {}", query, rawTypes);
-		var types = rawTypes == null ? new HashSet<SearchType>() : Arrays.stream(rawTypes.split(",")).map(s -> SearchType.valueOf(s.trim())).collect(Collectors.toSet());
-		var result = searchManager.loadSearch(query, types);
+	public ResponseEntity<SearchResult> loadSearch(HttpServletRequest request, @RequestParam String query, @RequestParam(required = false) String types) {
+		log.debug("loadSearch called with query: {}, types: {}", query, types);
+
+		Set<SearchType> finalTypes = types == null || types.isBlank() ? new HashSet<>() : Arrays.stream(types.split(",")).map(s -> SearchType.fromString(s.trim())).collect(Collectors.toSet());
+		var result = searchManager.loadSearch(query, finalTypes);
 		if (result != null) {
 			return ResponseEntity.ok(result);
 		}

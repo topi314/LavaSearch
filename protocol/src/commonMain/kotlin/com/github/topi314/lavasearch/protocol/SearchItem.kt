@@ -2,6 +2,7 @@ package com.github.topi314.lavasearch.protocol
 
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmField
+import kotlin.jvm.JvmStatic
 
 @Serializable
 enum class SearchType(val value: String) {
@@ -9,7 +10,21 @@ enum class SearchType(val value: String) {
     ALBUM("album"),
     ARTIST("artist"),
     PLAYLIST("playlist"),
-    TEXT("text")
+    TEXT("text");
+
+    companion object {
+
+        @JvmStatic
+        fun fromString(value: String): SearchType {
+            entries.forEach {
+                if (it.value == value.lowercase()) {
+                    return it
+                }
+            }
+            throw IllegalArgumentException("Unknown SearchType: $value")
+        }
+
+    }
 }
 
 @Serializable
