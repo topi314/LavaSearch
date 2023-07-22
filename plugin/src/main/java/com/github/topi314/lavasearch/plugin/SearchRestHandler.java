@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 @RestController
@@ -27,7 +28,7 @@ public class SearchRestHandler {
 	@GetMapping("/v4/loadsearch")
 	public ResponseEntity<SearchResult> loadSearch(HttpServletRequest request, @RequestParam String query, @RequestParam(required = false) String rawTypes) {
 		log.info("loadSearch: query={}", query);
-		var types = rawTypes == null ? null : Arrays.asList(rawTypes.split(","));
+		var types = rawTypes == null ? new ArrayList<String>() : Arrays.asList(rawTypes.split(","));
 		var result = searchManager.loadSearch(query, types);
 		if (result != null) {
 			return ResponseEntity.ok(result);
