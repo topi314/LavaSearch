@@ -81,7 +81,7 @@ data class SearchTrack(
     val length: Long,
     val identifier: String,
     val isStream: Boolean,
-    val uri: String?,
+    val uri: String,
     val artworkUrl: String?,
     val isrc: String?
 )
