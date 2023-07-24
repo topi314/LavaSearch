@@ -30,8 +30,8 @@ enum class SearchType(val value: String) {
 @Serializable
 data class SearchResult(
     val albums: List<SearchAlbum>,
-    val artist: List<SearchArtist>,
-    val playlist: List<SearchPlaylist>,
+    val artists: List<SearchArtist>,
+    val playlists: List<SearchPlaylist>,
     val tracks: List<SearchTrack>,
     val texts: List<SearchText>
 ) {
