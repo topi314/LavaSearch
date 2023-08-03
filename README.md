@@ -3,7 +3,7 @@
 LavaSearch is an advanced search module for [Lavaplayer](https://github.com/sedmelluq/lavaplayer) and [Lavalink](https://github.com/lavalink-devs/Lavalink).
 It returns a better search result than the default search support of Lavaplayer/Lavalink.
 
-You can use this module with Lavaplayer or as a plugin for Lavalink. Other plugins can link into this module to provide additional search sources.
+You can use this module with Lavaplayer or as a plugin for Lavalink v4 beta 3 or higher. Other plugins can link into this module to provide additional search sources.
 
 <details>
 <summary>Table of Contents</summary>
