@@ -11,6 +11,12 @@ java {
     sourceCompatibility = JavaVersion.VERSION_11
 }
 
+tasks {
+    register("classes") {
+        dependsOn("compileKotlinJvm")
+    }
+}
+
 kotlin {
     jvm {
         compilations.all {

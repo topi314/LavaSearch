@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm")
-    id("dev.arbjerg.lavalink.gradle-plugin") version "1.0.10"
+    id("dev.arbjerg.lavalink.gradle-plugin") version "1.0.12"
 }
 
 base {
@@ -11,10 +11,11 @@ lavalinkPlugin {
     name = "lavasearch-plugin"
     apiVersion = "4.0.0-beta.3"
     serverVersion = "4.0.0-beta.3"
+    configurePublishing = false
 }
 
 java {
-
+    sourceCompatibility = JavaVersion.VERSION_17
 }
 
 dependencies {
