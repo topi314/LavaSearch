@@ -1,10 +1,10 @@
 package com.github.topi314.lavasearch.api
 
-import com.github.topi314.lavasearch.AudioSearchResult
-import com.github.topi314.lavasearch.AudioText
+import com.github.topi314.lavasearch.result.AudioSearchResult
+import com.github.topi314.lavasearch.result.AudioText
 import kotlinx.serialization.json.JsonObject
 
-interface SearchResultPluginInfoModifier {
+interface SearchPluginInfoModifier {
 
     fun modifyAudioTextPluginInfo(text: AudioText): JsonObject? = null
 

@@ -1,8 +1,8 @@
 package com.github.topi314.lavasearch.plugin
 
-import com.github.topi314.lavasearch.AudioSearchResult
-import com.github.topi314.lavasearch.AudioText
-import com.github.topi314.lavasearch.api.SearchResultPluginInfoModifier
+import com.github.topi314.lavasearch.result.AudioSearchResult
+import com.github.topi314.lavasearch.result.AudioText
+import com.github.topi314.lavasearch.api.SearchPluginInfoModifier
 import com.github.topi314.lavasearch.protocol.SearchResult
 import com.github.topi314.lavasearch.protocol.Text
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager
@@ -17,7 +17,7 @@ import lavalink.server.util.toTrack
 fun AudioSearchResult.toSearchResult(
     audioPlayerManager: AudioPlayerManager,
     pluginInfoModifiers: List<AudioPluginInfoModifier>,
-    searchResultInfoModifiers: List<SearchResultPluginInfoModifier>
+    searchResultInfoModifiers: List<SearchPluginInfoModifier>
 ): SearchResult {
     val tracks = tracks.map { it.toTrack(audioPlayerManager, pluginInfoModifiers) }
     val playlists = playlists.map { Playlist(it.toPlaylistInfo(), it.toPluginInfo(pluginInfoModifiers), emptyList()) }
@@ -33,7 +33,7 @@ fun AudioSearchResult.toSearchResult(
     return SearchResult(tracks, albums, artists, playlists, texts, plugin)
 }
 
-fun AudioText.toText(searchResultInfoModifiers: List<SearchResultPluginInfoModifier>): Text {
+fun AudioText.toText(searchResultInfoModifiers: List<SearchPluginInfoModifier>): Text {
     val plugin = searchResultInfoModifiers.fold(JsonObject(emptyMap())) { acc, it ->
         val jsonObject = it.modifyAudioTextPluginInfo(this) ?: JsonObject(emptyMap())
         acc + jsonObject

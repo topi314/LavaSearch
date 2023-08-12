@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     kotlin("jvm")
     id("dev.arbjerg.lavalink.gradle-plugin") version "1.0.14"
@@ -16,6 +18,12 @@ lavalinkPlugin {
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
+    }
 }
 
 dependencies {

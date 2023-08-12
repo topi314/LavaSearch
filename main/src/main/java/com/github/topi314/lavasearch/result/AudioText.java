@@ -1,4 +1,4 @@
-package com.github.topi314.lavasearch;
+package com.github.topi314.lavasearch.result;
 
 import org.jetbrains.annotations.NotNull;
 

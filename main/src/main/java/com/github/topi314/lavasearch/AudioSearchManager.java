@@ -1,25 +1,26 @@
 package com.github.topi314.lavasearch;
 
+import com.github.topi314.lavasearch.result.AudioSearchResult;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class SearchManager {
+public class AudioSearchManager {
 
-	private final List<SearchSourceManager> sourceManagers;
+	private final List<AudioSearchSourceManager> sourceManagers;
 
-	public SearchManager() {
+	public AudioSearchManager() {
 		this.sourceManagers = new ArrayList<>();
 	}
 
-	public void registerSourceManager(SearchSourceManager sourceManager) {
+	public void registerSourceManager(AudioSearchSourceManager sourceManager) {
 		sourceManagers.add(sourceManager);
 	}
 
 	@Nullable
-	public <T extends SearchSourceManager> T source(Class<T> klass) {
+	public <T extends AudioSearchSourceManager> T source(Class<T> klass) {
 		for (var sourceManager : sourceManagers) {
 			if (klass.isAssignableFrom(sourceManager.getClass())) {
 				return klass.cast(sourceManager);
@@ -29,7 +30,7 @@ public class SearchManager {
 		return null;
 	}
 
-	public List<SearchSourceManager> getSourceManagers() {
+	public List<AudioSearchSourceManager> getSourceManagers() {
 		return this.sourceManagers;
 	}
 
