@@ -10,6 +10,8 @@ import java.util.List;
  */
 public interface AudioSearchResult {
 
+	public static final AudioSearchResult EMPTY = new BasicAudioSearchResult(List.of(), List.of(), List.of(), List.of(), List.of());
+
 	/**
 	 * @return a list of tracks found
 	 */
