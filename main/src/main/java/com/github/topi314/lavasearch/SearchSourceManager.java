@@ -1,7 +1,5 @@
 package com.github.topi314.lavasearch;
 
-import com.github.topi314.lavasearch.protocol.SearchResult;
-import com.github.topi314.lavasearch.protocol.SearchType;
 import kotlin.annotations.jvm.ReadOnly;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -14,7 +12,7 @@ public interface SearchSourceManager {
 	String getSourceName();
 
 	@Nullable
-	SearchResult loadSearch(@NotNull String query, @NotNull @ReadOnly Set<SearchType> types);
+	AudioSearchResult loadSearch(@NotNull String query, @NotNull @ReadOnly Set<AudioSearchResult.Type> types);
 
 	void shutdown();
 }

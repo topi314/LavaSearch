@@ -1,7 +1,5 @@
 package com.github.topi314.lavasearch;
 
-import com.github.topi314.lavasearch.protocol.SearchResult;
-import com.github.topi314.lavasearch.protocol.SearchType;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -22,7 +20,7 @@ public class SearchManager {
 
 	@Nullable
 	public <T extends SearchSourceManager> T source(Class<T> klass) {
-		for (SearchSourceManager sourceManager : sourceManagers) {
+		for (var sourceManager : sourceManagers) {
 			if (klass.isAssignableFrom(sourceManager.getClass())) {
 				return klass.cast(sourceManager);
 			}
@@ -36,13 +34,13 @@ public class SearchManager {
 	}
 
 	public void shutdown() {
-		for (SearchSourceManager sourceManager : this.sourceManagers) {
+		for (var sourceManager : this.sourceManagers) {
 			sourceManager.shutdown();
 		}
 	}
 
 	@Nullable
-	public SearchResult loadSearch(String query, Set<SearchType> types) {
+	public AudioSearchResult loadSearch(String query, Set<AudioSearchResult.Type> types) {
 		for (var sourceManager : this.sourceManagers) {
 			var searchResults = sourceManager.loadSearch(query, types);
 			if (searchResults != null) {

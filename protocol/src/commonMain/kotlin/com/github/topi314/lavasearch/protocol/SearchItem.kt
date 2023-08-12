@@ -1,87 +1,27 @@
 package com.github.topi314.lavasearch.protocol
 
+import dev.arbjerg.lavalink.protocol.v4.Playlist
+import dev.arbjerg.lavalink.protocol.v4.Track
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 import kotlin.jvm.JvmField
-import kotlin.jvm.JvmStatic
-
-@Serializable
-enum class SearchType(val value: String) {
-    TRACK("track"),
-    ALBUM("album"),
-    ARTIST("artist"),
-    PLAYLIST("playlist"),
-    TEXT("text");
-
-    companion object {
-
-        @JvmStatic
-        fun fromString(value: String): SearchType {
-            entries.forEach {
-                if (it.value == value.lowercase()) {
-                    return it
-                }
-            }
-            throw IllegalArgumentException("Unknown SearchType: $value")
-        }
-
-    }
-}
 
 @Serializable
 data class SearchResult(
-    val albums: List<SearchAlbum>,
-    val artists: List<SearchArtist>,
-    val playlists: List<SearchPlaylist>,
-    val tracks: List<SearchTrack>,
-    val texts: List<SearchText>
+    val tracks: List<Track>,
+    val albums: List<Playlist>,
+    val artists: List<Playlist>,
+    val playlists: List<Playlist>,
+    val texts: List<Text>,
+    val plugin: JsonObject
 ) {
     companion object {
         @JvmField
-        val EMPTY = SearchResult(emptyList(), emptyList(), emptyList(), emptyList(), emptyList())
+        val EMPTY = SearchResult(emptyList(), emptyList(), emptyList(), emptyList(), emptyList(), JsonObject(emptyMap()))
     }
 }
 
-@Serializable
-data class SearchAlbum(
-    val identifier: String,
-    val name: String,
-    val artist: String,
-    val url: String,
-    val trackCount: Int,
-    val artworkUrl: String?,
-    val isrc: String?
-)
-
 
 @Serializable
-data class SearchArtist(
-    val identifier: String,
-    val name: String,
-    val url: String,
-    val artworkUrl: String?,
-)
+data class Text(val text: String, val plugin: JsonObject)
 
-@Serializable
-data class SearchPlaylist(
-    val identifier: String,
-    val name: String,
-    val url: String,
-    val artworkUrl: String?,
-    val trackCount: Int
-)
-
-
-@Serializable
-data class SearchText(val text: String)
-
-@Serializable
-data class SearchTrack(
-    val title: String,
-    val author: String,
-    val length: Long,
-    val identifier: String,
-    val isStream: Boolean,
-    val uri: String,
-    val artworkUrl: String?,
-    val isrc: String?
-)
