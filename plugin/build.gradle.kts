@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm")
-    id("dev.arbjerg.lavalink.gradle-plugin") version "1.0.12"
+    id("dev.arbjerg.lavalink.gradle-plugin") version "1.0.14"
 }
 
 base {
