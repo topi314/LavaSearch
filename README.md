@@ -103,7 +103,7 @@ The endpoint accepts the following query parameters:
 The endpoint returns a JSON object with the following structure:
 
 > [!Note]
-> The tracks field of playlists are always empty
+> The `tracks` field of playlists are always empty
 
 | Field     | Type                                                                                                                             | Description                                                     |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
