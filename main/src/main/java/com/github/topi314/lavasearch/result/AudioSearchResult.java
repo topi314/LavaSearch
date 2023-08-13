@@ -53,6 +53,17 @@ public interface AudioSearchResult {
 			this.name = name;
 		}
 
+		/**
+		 * @return the name of the type
+		 */
+		public String getName() {
+			return this.name;
+		}
+
+		/**
+		 * @param name the name of the type
+		 * @return the type corresponding to the name
+		 */
 		public static Type fromName(String name) {
 			for (var type : Type.values()) {
 				if (type.name.equals(name)) {
