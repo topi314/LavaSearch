@@ -29,10 +29,10 @@ class AudioSearchRestHandler(
     fun loadSearch(
         request: HttpServletRequest,
         @RequestParam query: String,
-        @RequestParam(required = false) types: String
+        @RequestParam(required = false) types: String?
     ): ResponseEntity<SearchResult> {
         log.debug("loadSearch called with query: {}, types: {}", query, types)
-        val finalTypes = if (types.isBlank()) emptySet() else types.split(""",\s*""".toRegex()).mapNotNull { AudioSearchResult.Type.fromName(it) }.toSet()
+        val finalTypes = if (types.isNullOrBlank()) emptySet() else types.split(""",\s*""".toRegex()).mapNotNull { AudioSearchResult.Type.fromName(it) }.toSet()
         val result = audioSearchManager.loadSearch(query, finalTypes)
         return if (result != null) {
             ResponseEntity.ok(result.toSearchResult(playerManager, pluginInfoModifiers, searchResultInfoModifiers))
