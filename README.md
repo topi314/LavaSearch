@@ -100,7 +100,9 @@ The endpoint accepts the following query parameters:
 | query     | string | The search query                                                                                |
 | types     | string | The types to search for, can be one or more of `track`, `album`, `artist`, `playlist` or `text` |
 
-The endpoint returns a JSON object with the following structure:
+The endpoint returns a [search result](#searhc-result-object) JSON object
+
+### Search Result Object
 
 > [!Note]
 > The `tracks` field of playlists are always empty
