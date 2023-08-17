@@ -90,6 +90,8 @@ lavalink:
 
 Snapshot builds are available in https://maven.topi.wtf/snapshots with the short commit hash as the version
 
+### API
+
 LavaSearch adds a new endpoint to Lavalink, `GET` `/v4/loadsearch`. This endpoint is used to search for tracks, albums,
 artists, playlists & text.
 
