@@ -100,7 +100,7 @@ The endpoint accepts the following query parameters:
 | query     | string | The search query                                                                                |
 | types     | string | The types to search for, can be one or more of `track`, `album`, `artist`, `playlist` or `text` |
 
-The endpoint returns a [search result](#searhc-result-object) JSON object
+The endpoint returns a [search result](#search-result-object) JSON object
 
 ### Search Result Object
 
