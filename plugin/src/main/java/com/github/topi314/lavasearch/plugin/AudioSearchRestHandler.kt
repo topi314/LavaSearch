@@ -1,7 +1,7 @@
 package com.github.topi314.lavasearch.plugin
 
 import com.github.topi314.lavasearch.result.AudioSearchResult
-import com.github.topi314.lavasearch.AudioSearchManager
+import com.github.topi314.lavasearch.SearchManager
 import com.github.topi314.lavasearch.api.SearchPluginInfoModifier
 import com.github.topi314.lavasearch.protocol.SearchResult
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class AudioSearchRestHandler(
-    private val audioSearchManager: AudioSearchManager,
+    private val searchManager: SearchManager,
     private val playerManager: AudioPlayerManager,
     private val pluginInfoModifiers: List<AudioPluginInfoModifier>,
     private val searchResultInfoModifiers: List<SearchPluginInfoModifier>
@@ -33,7 +33,7 @@ class AudioSearchRestHandler(
     ): ResponseEntity<SearchResult> {
         log.debug("loadSearch called with query: {}, types: {}", query, types)
         val finalTypes = if (types.isNullOrBlank()) emptySet() else types.split(""",\s*""".toRegex()).mapNotNull { AudioSearchResult.Type.fromName(it) }.toSet()
-        val result = audioSearchManager.loadSearch(query, finalTypes)
+        val result = searchManager.loadSearch(query, finalTypes)
         return if (result != null) {
             ResponseEntity.ok(result.toSearchResult(playerManager, pluginInfoModifiers, searchResultInfoModifiers))
         } else ResponseEntity.notFound().build()
