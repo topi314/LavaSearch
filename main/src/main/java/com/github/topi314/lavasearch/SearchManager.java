@@ -9,19 +9,19 @@ import java.util.Set;
 
 public class SearchManager {
 
-	private final List<AudioSearchManager> sourceManagers;
+	private final List<AudioSearchManager> searchManagers;
 
 	public SearchManager() {
-		this.sourceManagers = new ArrayList<>();
+		this.searchManagers = new ArrayList<>();
 	}
 
-	public void registerSourceManager(AudioSearchManager sourceManager) {
-		sourceManagers.add(sourceManager);
+	public void registerSearchManager(AudioSearchManager sourceManager) {
+		searchManagers.add(sourceManager);
 	}
 
 	@Nullable
-	public <T extends AudioSearchManager> T source(Class<T> klass) {
-		for (var sourceManager : sourceManagers) {
+	public <T extends AudioSearchManager> T search(Class<T> klass) {
+		for (var sourceManager : searchManagers) {
 			if (klass.isAssignableFrom(sourceManager.getClass())) {
 				return klass.cast(sourceManager);
 			}
@@ -30,19 +30,19 @@ public class SearchManager {
 		return null;
 	}
 
-	public List<AudioSearchManager> getSourceManagers() {
-		return this.sourceManagers;
+	public List<AudioSearchManager> getSearchManagers() {
+		return this.searchManagers;
 	}
 
 	public void shutdown() {
-		for (var sourceManager : this.sourceManagers) {
+		for (var sourceManager : this.searchManagers) {
 			sourceManager.shutdown();
 		}
 	}
 
 	@Nullable
 	public AudioSearchResult loadSearch(String query, Set<AudioSearchResult.Type> types) {
-		for (var sourceManager : this.sourceManagers) {
+		for (var sourceManager : this.searchManagers) {
 			var searchResults = sourceManager.loadSearch(query, types);
 			if (searchResults != null) {
 				return searchResults;
