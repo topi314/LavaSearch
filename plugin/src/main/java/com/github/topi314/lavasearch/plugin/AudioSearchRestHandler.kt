@@ -36,6 +36,6 @@ class AudioSearchRestHandler(
         val result = searchManager.loadSearch(query, finalTypes)
         return if (result != null) {
             ResponseEntity.ok(result.toSearchResult(playerManager, pluginInfoModifiers, searchResultInfoModifiers))
-        } else ResponseEntity.notFound().build()
+        } else ResponseEntity.noContent().build()
     }
 }
