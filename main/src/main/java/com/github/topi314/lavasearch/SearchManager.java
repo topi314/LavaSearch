@@ -41,9 +41,9 @@ public class SearchManager {
 	}
 
 	@Nullable
-	public AudioSearchResult loadSearch(String query, Set<AudioSearchResult.Type> types) throws IllegalStateException {
+	public AudioSearchResult loadSearch(String query, Set<AudioSearchResult.Type> types) {
 		if (this.searchManagers.isEmpty()){
-			throw new IllegalStateException("No search source registered");
+			throw new IllegalStateException("No search managers registered");
 		}
 		for (var sourceManager : this.searchManagers) {
 			var searchResults = sourceManager.loadSearch(query, types);
