@@ -184,7 +184,7 @@ The endpoint returns a [search result](#search-result-object) JSON object
 
 </details>
 
-If no results are found the endpoint returns a http status code of `404`
+If no results are found the endpoint returns a http status code of `204 No Content`
 
 ### Text Object
 
