@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     kotlin("jvm")
-    id("dev.arbjerg.lavalink.gradle-plugin") version "1.0.14"
+    id("dev.arbjerg.lavalink.gradle-plugin") version "1.0.15"
 }
 
 base {
@@ -11,8 +11,8 @@ base {
 
 lavalinkPlugin {
     name = "lavasearch-plugin"
-    apiVersion = "4.0.0-beta.3"
-    serverVersion = "4.0.0-beta.3"
+    apiVersion = "4.0.0"
+    serverVersion = "4.0.0"
     configurePublishing = false
 }
 
@@ -30,7 +30,7 @@ dependencies {
     implementation(project(":main"))
     implementation(project(":protocol"))
     implementation(project(":plugin-api"))
-    compileOnly("dev.arbjerg.lavalink:Lavalink-Server:4.0.0-beta.3")
+    compileOnly("dev.arbjerg.lavalink:Lavalink-Server:4.0.0")
 }
 
 publishing {

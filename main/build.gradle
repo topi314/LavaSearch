@@ -13,7 +13,7 @@ java {
 }
 
 dependencies {
-    compileOnly "dev.arbjerg:lavaplayer:2.0.0"
+    compileOnly "dev.arbjerg:lavaplayer:2.0.4"
     compileOnly "org.jetbrains:annotations:24.0.1"
     implementation "org.jetbrains.kotlin:kotlin-annotations-jvm:1.9.0"
 }

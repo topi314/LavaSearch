@@ -33,7 +33,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
-                implementation("dev.arbjerg.lavalink:protocol:4.0.0-beta.3")
+                implementation("dev.arbjerg.lavalink:protocol:4.0.0")
             }
         }
     }
