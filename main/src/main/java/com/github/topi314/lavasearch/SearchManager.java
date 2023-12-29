@@ -4,6 +4,7 @@ import com.github.topi314.lavasearch.result.AudioSearchResult;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -31,7 +32,7 @@ public class SearchManager {
 	}
 
 	public List<AudioSearchManager> getSearchManagers() {
-		return this.searchManagers;
+		return Collections.unmodifiableList(this.searchManagers);
 	}
 
 	public void shutdown() {
