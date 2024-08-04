@@ -69,7 +69,28 @@ dependencies {
 
 ### Usage
 
-// TODO
+Register `Search Manager`
+```java
+SearchManager searchManager = new SearchManager();
+```
+
+Register sources
+```java
+SpotifySourceManager Spotify = new SpotifySourceManager(options)
+YoutubeSearchManager Youtube = new YoutubeSearchManager(options)
+
+searchManager.registerSearchManager(Spotify);
+searchManager.registerSearchManager(Youtube);
+```
+
+Basic usage
+```java
+AudioSearchResult searchResult = searchManager.loadSearch(query, types);
+```
+
+- query: String
+- types: Set of `AudioSearchResult.Type`
+
 
 ## Lavalink Usage
 
