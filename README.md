@@ -69,7 +69,7 @@ dependencies {
 
 ### Usage
 
-Create new `Search Manager`
+Create new `SearchManager`
 ```java
 var searchManager = new SearchManager();
 ```
