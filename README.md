@@ -69,27 +69,25 @@ dependencies {
 
 ### Usage
 
-Register `Search Manager`
+Create new `Search Manager`
 ```java
-SearchManager searchManager = new SearchManager();
-```
-
-Register sources
-```java
-var spotify = new SpotifySourceManager(clientId, clientSecret, spDc, countryCode, () -> audioPlayerManager, DefaultMirroringAudioTrackResolver)
-var youtube = new YoutubeSearchManager(() -> audioPlayerManager, region);
-
-searchManager.registerSearchManager(spotify);
-searchManager.registerSearchManager(youtube);
+var searchManager = new SearchManager();
 ```
 
 Basic usage
 ```java
+var query = "ytmsearch:bla bla";
+var types = List.of(
+        AudioSearchResult.Type.TRACK,
+        AudioSearchResult.Type.PLAYLIST,
+        AudioSearchResult.Type.ALBUM,
+        AudioSearchResult.Type.ARTIST,
+        AudioSearchResult.Type.TEXT
+);
+
+
 AudioSearchResult searchResult = searchManager.loadSearch(query, types);
 ```
-
-- query: String
-- types: Set of `AudioSearchResult.Type`
 
 ## Lavalink Usage
 
