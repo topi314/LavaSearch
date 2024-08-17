@@ -72,6 +72,9 @@ dependencies {
 Create new `SearchManager`
 ```java
 var searchManager = new SearchManager();
+
+//register sources
+searchManager.registerSearchManager(source);
 ```
 
 Basic usage
