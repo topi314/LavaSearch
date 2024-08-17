@@ -69,7 +69,28 @@ dependencies {
 
 ### Usage
 
-// TODO
+Create new `SearchManager`
+```java
+var searchManager = new SearchManager();
+
+//register sources
+searchManager.registerSearchManager(source);
+```
+
+Basic usage
+```java
+var query = "ytmsearch:bla bla";
+var types = List.of(
+        AudioSearchResult.Type.TRACK,
+        AudioSearchResult.Type.PLAYLIST,
+        AudioSearchResult.Type.ALBUM,
+        AudioSearchResult.Type.ARTIST,
+        AudioSearchResult.Type.TEXT
+);
+
+
+AudioSearchResult searchResult = searchManager.loadSearch(query, types);
+```
 
 ## Lavalink Usage
 
