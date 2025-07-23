@@ -131,14 +131,14 @@ The endpoint returns a [search result](#search-result-object) JSON object
 > [!Note]
 > The `tracks` field of playlists are always empty
 
-| Field     | Type                                                                                                                             | Description                                                     |
-|-----------|----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| tracks    | array of [Track](https://github.com/lavalink-devs/Lavalink/blob/master/IMPLEMENTATION.md#track) objects                          | An array of tracks, only present if `track` is in `types`       |
-| albums    | array of [Playlist](https://github.com/lavalink-devs/Lavalink/blob/master/IMPLEMENTATION.md#load-result-data---playlist) objects | An array of albums, only present if `album` is in `types`       |
-| artists   | array of [Playlist](https://github.com/lavalink-devs/Lavalink/blob/master/IMPLEMENTATION.md#load-result-data---playlist) objects | An array of artists, only present if `artist` is in `types`     |
-| playlists | array of [Playlist](https://github.com/lavalink-devs/Lavalink/blob/master/IMPLEMENTATION.md#load-result-data---playlist) objects | An array of playlists, only present if `playlist` is in `types` |
-| texts     | array of [Text](#text-object) objects                                                                                            | An array of text results, only present if `text` is in `types`  |
-| plugin    | object                                                                                                                           | Addition result data provided by plugins                        |
+| Field     | Type                                                                            | Description                                                     |
+|-----------|---------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| tracks    | array of [Track](https://lavalink.dev/api/rest#track) objects                   | An array of tracks, only present if `track` is in `types`       |
+| albums    | array of [Playlist](https://lavalink.dev/api/rest#playlist-result-data) objects | An array of albums, only present if `album` is in `types`       |
+| artists   | array of [Playlist](https://lavalink.dev/api/rest#playlist-result-data) objects | An array of artists, only present if `artist` is in `types`     |
+| playlists | array of [Playlist](https://lavalink.dev/api/rest#playlist-result-data) objects | An array of playlists, only present if `playlist` is in `types` |
+| texts     | array of [Text](#text-object) objects                                           | An array of text results, only present if `text` is in `types`  |
+| plugin    | object                                                                          | Addition result data provided by plugins                        |
 
 <details>
 <summary>Example Payload</summary>
